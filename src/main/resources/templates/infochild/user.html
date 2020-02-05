@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<html lang="zh-Hans"
+      xmlns:th="http://www.thymeleaf.org">
+
+<th:block th:fragment="modal">
+    <div class="weui-cells">
+        <div class="weui-cell">
+            <div class="weui-cell__hd">
+                <label class="weui-label list-tit">1.机构名称</label>
+            </div>
+            <div class="weui-cell__bd">
+                <input class="weui-input must" type="text" value="招商银行银川分行" name="user" id="pgroupname" readonly aria-label="机构名称">
+            </div>
+            <span class="weui-badge cells-must">必</span>
+        </div>
+
+        <div class="weui-cell">
+            <div class="weui-cell__hd">
+                <label class="weui-label list-tit">2.身份证号</label>
+            </div>
+            <div class="weui-cell__bd">
+                <input class="weui-input must" type="text" placeholder="身份证号" name="user" id="userCard" aria-label="身份证号">
+            </div>
+            <span class="weui-badge cells-must">必</span>
+        </div>
+
+        <div class="weui-cell">
+            <div class="weui-cell__hd">
+                <label class="weui-label list-tit">3.联系电话</label>
+            </div>
+            <div class="weui-cell__bd">
+                <input class="weui-input must" type="number" pattern="[0-9]*" placeholder="请输入电话号码" name="user" id="userPhone" aria-label="联系电话">
+            </div>
+            <span class="weui-badge cells-must">必</span>
+        </div>
+
+        <div class="weui-cell">
+            <div class="weui-cell__hd">
+                <label class="weui-label list-tit">4.姓名</label>
+            </div>
+            <div class="weui-cell__bd">
+                <input class="weui-input must" type="text" placeholder="姓名" name="user" id="name" aria-label="姓名">
+            </div>
+            <span class="weui-badge cells-must">必</span>
+        </div>
+
+        <div class="weui-cell">
+            <div class="weui-cell__hd">
+                <label class="weui-label list-tit">5.部门名称</label>
+            </div>
+            <div class="weui-cell__bd">
+                <input class="weui-input must" type="text" placeholder="选择部门" name="user" id="groupname" aria-label="部门名称">
+            </div>
+            <span class="weui-badge cells-must">必</span>
+        </div>
+
+        <div class="weui-cell">
+            <div class="weui-cell__hd">
+                <label class="weui-label list-tit">6.口令</label>
+            </div>
+            <div class="weui-cell__bd">
+                <input class="weui-input must" type="text" placeholder="请牢记口令便于获取既往填报信息" name="user" id="updateKey" aria-label="口令">
+            </div>
+            <span class="weui-badge cells-must">必</span>
+        </div>
+
+        <div class="weui-cell">
+            <div class="weui-loadmore d-none" id="save-user-loading">
+                <i class="weui-loading"></i>
+                <span class="weui-loadmore__tips">正在提交</span>
+            </div>
+            <button class="weui-btn weui-btn_default bg-success text-white mx-4 px-4" type="button" id="save-user">下一步</button>
+        </div>
+
+    </div>
+</th:block>

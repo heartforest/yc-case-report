@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <head th:replace="link/head :: head"></head>
+    <head th:replace="link/head :: jQuery"></head>
+    <head th:replace="link/head :: weui"></head>
+    <head th:replace="link/head :: bootstrap"></head>
+    <head th:replace="link/head :: animate"></head>
+    <head th:replace="link/head :: fontawesome"></head>
+    <head th:replace="link/head :: idx"></head>
+    <title th:text="招商银行银川分行-新型冠状病毒肺炎防控信息统计"></title>
+</head>
+<body>
+<!-- 公告 -->
+<div class="text-center cmb-red font-weight-bold pt-3" style="font-size: 2rem">招商银行银川分行</div>
+<div class="text-center cmb-red" style="font-size: 1rem">新型冠状病毒肺炎防控信息统计</div>
+<hr>
+<div id="announcement">
+    <label class="case-txt cmb-red">全体员工:</label>
+    <label class="case-txt text-primary pl-1 pr-1">疫情防控是近期重要任务，为了有效防控新型冠状病毒，现就加强疫情信息报送有关工作要求如下：</label>
+    <hr>
+    <label class="case-txt text-primary pl-1 pr-1">一、全体员工必须每日14:00前完成《招商银行银川分行新型冠状病毒肺炎防控信息统计表》。全体员工须高度重视信息填报工作，认真填写每项数据，对所填写数据负责，不得数据前后不符，不得迟报、漏报、瞒报。</label>
+    <label class="case-txt text-primary pl-1 pr-1">二、各行部负责人是防疫工作第一责任人，做到守土尽责，按照分行应急预案和工作通知要求认真履职。</label>
+    <label class="case-txt text-primary pl-1 pr-1">三、严格遵守政府通告和所在社区相关要求，不得擅自外出，不得传播谣言，不得谎报险情、疫情，不得妨害公务、寻衅滋事等。</label>
+    <label class="case-txt text-primary pl-1 pr-1">四、如对上述要求落实不到位，对疫情防控造成影响，分行将立即对本人和负责人严肃问责。</label>
+</div>
+<!-- 首单填写 -->
+<div class="weui-cells weui-cells_form">
+
+</div>
+<!--  完成进度 -->
+<div class="weui-progress">
+    <div class="weui-progress__bar">
+        <div class="weui-progress__inner-bar js_progress" style="width: 0%;" id="main-progress"></div>
+    </div>
+</div>
+<div class="body-font text-center text-success font-weight-bold">完成进度</div>
+<!-- 明细填写 -->
+<div class="weui-tab">
+    <div class="weui-navbar">
+        <a class="weui-navbar__item font-weight-bold text-white bg-primary weui-bar__item--on" href="#tab1" id="bar1">基本信息</a>
+        <a class="weui-navbar__item font-weight-bold" href="#tab2" id="bar2">本人填报</a>
+        <a class="weui-navbar__item font-weight-bold" href="#tab3" id="bar3">家属填报</a>
+        <a class="weui-navbar__item font-weight-bold d-none" href="#tab4" id="bar4">既往填报</a>
+    </div>
+    <div class="weui-tab__bd">
+        <div id="tab1" class="weui-tab__bd-item weui-tab__bd-item--active">
+            <div th:replace="infochild/user :: modal"></div>
+        </div>
+        <div id="tab2" class="weui-tab__bd-item">
+            <div th:replace="infochild/case-user :: modal"></div>
+        </div>
+        <div id="tab3" class="weui-tab__bd-item">
+            <div th:replace="infochild/case-touching :: modal"></div>
+        </div>
+        <div id="tab4" class="weui-tab__bd-item">
+            <div th:replace="infochild/case-his :: modal"></div>
+        </div>
+    </div>
+</div>
+<hr>
+<div class="weui-footer weui-tab mt-4">
+    <div class="weui-cell weui-cell_switch">
+        <div class="weui-cell__hd">
+            <label class="weui-label list-tit">信息统计</label>
+        </div>
+        <div class="weui-cell__bd">
+            <input class="weui-input must" type="text">
+        </div>
+        <div class="weui-cell__ft">
+            <input class="weui-switch" type="checkbox" id="group-check">
+        </div>
+    </div>
+</div>
+<hr>
+<div class="weui-footer mt-4 d-none" id="group-div">
+    <div th:replace="infochild/group-count :: modal"></div>
+</div>
+<div class="weui-footer mt-4">
+    <p class="weui-footer__text">Copyright © 招商银行银川分行</p>
+</div>
+<script type="text/javascript" charset="UTF-8" th:src="@{/info.js}"></script>
+<script type="text/javascript" charset="UTF-8" th:src="@{/save.js}"></script>
+</body>
+</html>

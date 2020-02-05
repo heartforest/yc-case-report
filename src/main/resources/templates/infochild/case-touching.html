@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+
+<html lang="zh-Hans"
+      xmlns:th="http://www.thymeleaf.org">
+
+<th:block th:fragment="modal">
+    <div class="weui-cells">
+        <div class="weui-cell cells-tit">29.有无亲属2020年1月8日后从外地来宁（返宁）人员；</div>
+        <div class="weui-cell weui-cell_switch">
+            <div class="weui-cell__hd">
+                <label class="weui-label list-tit text-danger">必选项</label>
+            </div>
+            <div class="weui-cell__bd">
+                <input class="weui-input case-txt must" type="text" placeholder="">
+            </div>
+            <div class="weui-cell__ft">
+                <input class="weui-switch" type="checkbox" actname="touching">
+                <span class="weui-badge cells-must">必</span>
+            </div>
+        </div>
+
+        <div class="weui-cell cells-tit" name="touching-cell">30.接触对象姓名</div>
+        <div class="weui-cell d-none" name="touching-cell">
+            <div class="weui-cell__bd">
+                <textarea class="weui-textarea" placeholder="张三、李四、王五...." rows="3" name="case-touching" id="touchingUser"></textarea>
+                <div class="weui-textarea-counter"><span>0</span>/200</div>
+            </div>
+        </div>
+
+        <div class="weui-cell weui-cell_switch" name="touching-cell">
+            <div class="weui-cell__hd">
+                <label class="weui-label list-tit">31.与本人关系</label>
+            </div>
+            <div class="weui-cell__bd">
+                <input class="weui-input case-txt" type="text" placeholder="与本人关系（亲友/同事/其他）" name="case-touching"
+                       id="touchingUserRelat">
+            </div>
+        </div>
+
+        <div class="weui-cell" name="touching-cell">
+            <div class="weui-cell__hd">
+                <label class="weui-label list-tit">32.来源地</label>
+            </div>
+            <div class="weui-cell__bd">
+                <input class="weui-input case-txt" type="text" placeholder="接触对象来源地（省/市/区)" name="case-touching"
+                       id="touchingUserFrom">
+            </div>
+        </div>
+        <div class="weui-cell" name="touching-cell">
+            <div class="weui-cell__hd">
+                <label class="weui-label list-tit"></label>
+            </div>
+            <div class="weui-cell__bd">
+                <input type="text" class="weui-input list-input" placeholder="国外请在此录入" aria-label="国外请在此录入"
+                       id="touchingUserFrom-oth">
+            </div>
+        </div>
+
+        <div class="weui-cell" name="touching-cell">
+            <div class="weui-cell__hd">
+                <label class="weui-label list-tit">33.接触日期</label>
+            </div>
+            <div class="weui-cell__bd">
+                <input class="weui-input case-txt" type="text" placeholder="2020年1月8日（含）以后" name="case-touching"
+                       id="touchingUserDate">
+            </div>
+        </div>
+
+        <div class="weui-cell weui-cell_switch" name="touching-cell">
+            <div class="weui-cell__hd">
+                <label class="weui-label list-tit">34.有无就诊史</label>
+            </div>
+            <div class="weui-cell__bd">
+                <input class="weui-input case-txt" type="text" readonly>
+            </div>
+            <div class="weui-cell__ft">
+                <input class="weui-switch" type="checkbox" actname="touchingUserHospitall" name="touchingUserHospitall">
+            </div>
+        </div>
+        <div class="weui-cell" name="touchingUserHospitall-cell">
+            <div class="weui-cell__bd">
+                    <textarea class="weui-textarea" placeholder="有无就诊史，如有请填写（医疗机构名称）" rows="3" name="case-touching"
+                              id="touchingUserHospitall"></textarea>
+                <div class="weui-textarea-counter"><span>0</span>/200</div>
+            </div>
+        </div>
+
+        <div class="weui-cell weui-cell_switch" name="touching-cell">
+            <div class="weui-cell__hd">
+                <label class="weui-label list-tit">35.有无向社区申报</label>
+            </div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" type="text" placeholder="有无向社区申报" name="case-touching"
+                       id="touchingUserCallCommunity" value="未申报" valt="已申报" valf="未申报">
+            </div>
+            <div class="weui-cell__ft">
+                <input class="weui-switch" type="checkbox" name="touchingUserCallCommunity">
+            </div>
+        </div>
+
+        <div class="weui-cell weui-cell_switch" name="touching-cell">
+            <div class="weui-cell__hd">
+                <label class="weui-label list-tit">36.接触后有无参加三人以上聚会</label>
+            </div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" type="text" placeholder="接触后有无参加三人以上聚会" name="case-touching"
+                       id="touchingMeet" value="否" valt="是" valf="否">
+            </div>
+            <div class="weui-cell__ft">
+                <input class="weui-switch" type="checkbox" name="touchingMeet">
+            </div>
+        </div>
+
+        <div class="weui-cell weui-cell_switch" name="touching-cell">
+            <div class="weui-cell__hd">
+                <label class="weui-label list-tit">37.接触后有无到人流密集场所</label>
+            </div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" type="text" placeholder="接触后有无到人流密集场所" name="case-touching"
+                       id="touchingPubPlace" value="否" valt="是" valf="否">
+            </div>
+            <div class="weui-cell__ft">
+                <input class="weui-switch" type="checkbox" name="touchingPubPlace">
+            </div>
+        </div>
+
+        <div class="weui-cell list-tit" name="touching-cell">38.其他</div>
+        <div class="weui-cell" name="touching-cell">
+            <div class="weui-cell__bd">
+                    <textarea class="weui-textarea" placeholder="其他" rows="3" name="case-touching"
+                              id="touchingExplain"></textarea>
+                <div class="weui-textarea-counter"><span>0</span>/200</div>
+            </div>
+        </div>
+
+        <div class="weui-cell">
+            <div class="weui-loadmore d-none" id="save-case-touching-loading">
+                <i class="weui-loading"></i>
+                <span class="weui-loadmore__tips">正在提交</span>
+            </div>
+            <button class="weui-btn weui-btn_default bg-success text-white mx-4 px-4" type="button" id="save-case-touching-user">
+                完成提交
+            </button>
+        </div>
+    </div>
+</th:block>

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <head th:replace="link/head :: head"></head>
+    <head th:replace="link/head :: jQuery"></head>
+    <head th:replace="link/head :: weui"></head>
+    <head th:replace="link/head :: bootstrap"></head>
+    <head th:replace="link/head :: animate"></head>
+    <head th:replace="link/head :: fontawesome"></head>
+    <head th:replace="link/head :: datatables-bootstrap4"></head>
+    <head th:replace="link/head :: idx"></head>
+    <title th:text="招商银行银川分行-新型冠状病毒肺炎防控信息统计"></title>
+</head>
+<body>
+<body th:replace="link/body :: modal"></body>
+<div class="container-fluid">
+    <div class="text-center cmb-red font-weight-bold pt-3" style="font-size: 2rem">招商银行银川分行</div>
+    <div class="text-center cmb-red" style="font-size: 1rem">新型冠状病毒肺炎防控信息统计</div>
+    <hr>
+    <!--    <div class="d-flex justify-content-center m-4" name="login">-->
+    <!--        <input type="password" class="form-control w-25" placeholder="口令" aria-label="口令" id="updateKey">-->
+    <!--    </div>-->
+    <!--    <div class="d-flex justify-content-center m-4" name="login">-->
+    <!--        <button class="btn btn-outline-success text-success w-25" type="button" id="login">登录</button>-->
+    <!--    </div>-->
+    <input class="weui-input" type="text" placeholder="查询日" id="caseDate">
+    <button class="btn btn-outline-success text-success w-25" type="button" id="select1">数据1</button>
+    <button class="btn btn-outline-success text-success w-25" type="button" id="put1">查询2</button>
+    <button class="btn btn-outline-success text-success w-25" type="button" id="put2">查询3</button>
+    <button class="btn btn-outline-success text-success w-25" type="button" id="put3">查询4</button>
+    <button class="btn btn-outline-success text-success w-25" type="button" id="put4">查询5</button>
+    <table id="datatable-id" class="table table-striped table-bordered table-sm body-font"
+           th:value="${login}"></table>
+    <div class="weui-footer mt-4">
+        <p class="weui-footer__text">Copyright © 招商银行银川分行</p>
+    </div>
+</div>
+<script type="text/javascript">
+    /**
+     * 触发上传
+     * @returns {undefined}
+     */
+    // $(function () {
+    //     // 设置
+    //     if($("#datatable-id").attr("value") === "hide") {
+    //         $("div[name=login]").remove();
+    //         $("#datatable-id").removeClass("d-none");
+    //
+    //     }
+    //     // 登录
+    //     $("#login").click(function() {
+    //         let timestamp = new Date().getTime();
+    //         let url = getURLroot() + "/rest/report/login/" + timestamp + "/" + sha256_digest($("#updateKey").val() + timestamp);
+    //         $.getJSON(url, {}, function(json) {
+    //             if(json.success) {
+    //                 $("div[name=login]").remove();
+    //                 $("#datatable-id").removeClass("d-none");
+    //                 initData();
+    //             } else {
+    //                 showModalDiv({
+    //                     "modalSize": "modal-sm",
+    //                     "modalDivTit": "提示",
+    //                     "havActionBut": false,
+    //                     "havFooter": false,
+    //                     "havModalHeader": false,
+    //                     "isBodyByHtml": true,
+    //                     "modalDivBody": "口令不对"
+    //                 });
+    //             }
+    //         });
+    //     });
+    // });
+    $(function () {
+        $("#caseDate").calendar({
+            "dateFormat": 'yyyy-mm-dd'
+        });
+        $("#select1").click(function () {
+            let dataList = [{"data": "caseDate", "title": "填报日期"},
+                {"data": "pgroupname", "title": "机构名称"},
+                {"data": "groupname", "title": "部门名称"},
+                {"data": "name", "title": "姓名"},
+                {"data": "userCity", "title": "城市"},
+                {"data": "userCommunity", "title": "社区"},
+                {"data": "strokeDest", "title": "行程-目的地"},
+                {"data": "strokeVia", "title": "途径武汉"},
+                {"data": "strokeDescription", "title": "行程描述"},
+                {"data": "touchingSign", "title": "接触史"},
+                {"data": "bodySign", "title": "本人或家属身体状态"},
+                {"data": "bodycase", "title": "症状描述"},
+                {"data": "doctorSign", "title": "是否就医"},
+                {"data": "hospital", "title": "就医医院"},
+                {"data": "doctorTime", "title": "就医时间"},
+                {"data": "dectorInfo", "title": "医生诊断"},
+                {"data": "caseExplain", "title": "其他"}];
+            let url = getURLroot() + "/rest/report/get";
+            initData(url, dataList);
+        });
+        $("#put1").click(function () {
+            let dataList = [{"data": "caseDate", "title": "填报日期"},
+                {"data": "pgroupname", "title": "所属单位（总/分/支）"},
+                {"data": "name", "title": "姓名"},
+                {"data": "userCard", "title": "身份证号"},
+                {"data": "userCommunity", "title": "住址"},
+                {"data": "userPhone", "title": "联系电话"},
+                {"data": "strokeDateGo", "title": "离宁时间"},
+                {"data": "strokeDest", "title": "去往地点"},
+                {"data": "strokeDateBack", "title": "返宁时间"},
+                {"data": "isolationDate", "title": "居家隔离时间"},
+                {"data": "hospital", "title": "有无就诊史(医疗机构名称)"},
+                {"data": "userCallCommunity", "title": "有无向社区申报"},
+                {"data": "userMeet", "title": "返宁后有无参加三人以上聚会"},
+                {"data": "userPubPlace", "title": "返宁后有无到人流密集场所"}];
+            let url = getURLroot() + "/rest/report/put1/get/" + $("#caseDate").val();
+            initData(url, dataList);
+        });
+        $("#put2").click(function () {
+            let dataList = [{"data": "caseDate", "title": "填报日期"},
+                {"data": "pgroupname", "title": "所属单位（总/分/支）"},
+                {"data": "name", "title": "姓名"},
+                {"data": "userCard", "title": "身份证号"},
+                {"data": "userCommunity", "title": "住址"},
+                {"data": "userPhone", "title": "联系电话"},
+                {"data": "touchingUser", "title": "接触对象姓名"},
+                {"data": "touchingUserRelat", "title": "与本人关系"},
+                {"data": "touchingUserFrom", "title": "来源地"},
+                {"data": "touchingUserDate", "title": "接触日期"},
+                {"data": "touchingUserHospitall", "title": "有无就诊史(医疗机构名称)"},
+                {"data": "touchingUserCallCommunity", "title": "有无向社区申报"},
+                {"data": "touchingMeet", "title": "返宁后有无参加三人以上聚会"},
+                {"data": "touchingPubPlace", "title": "返宁后有无到人流密集场所"}];
+            let url = getURLroot() + "/rest/report/put2/get/" + $("#caseDate").val();
+            initData(url, dataList);
+        });
+        $("#put3").click(function () {
+            let dataList = [{"data": "caseDate", "title": "填报日期"},
+                {"data": "pgroupname", "title": "机构名称"},
+                {"data": "groupname", "title": "部门名称"},
+                {"data": "name", "title": "姓名"},
+                {"data": "userPhone", "title": "联系电话"},
+                {"data": "userCard", "title": "身份证号"},
+                {"data": "havTouching", "title": "有无亲属2020年1月8日后从外地来宁（反宁）人员"},
+                {"data": "touchingUser", "title": "接触对象姓名"},
+                {"data": "touchingUserRelat", "title": "与本人关系"},
+                {"data": "touchingUserFrom", "title": "来源地"},
+                {"data": "touchingUserDate", "title": "接触日期"},
+                {"data": "touchingUserHospitall", "title": "有无就诊史(医疗机构名称)"},
+                {"data": "touchingUserCallCommunity", "title": "有无向社区申报"},
+                {"data": "touchingMeet", "title": "返宁后有无参加三人以上聚会"},
+                {"data": "touchingPubPlace", "title": "返宁后有无到人流密集场所"},
+                {"data": "touchingExplain", "title": "其他"}];
+            let url = getURLroot() + "/rest/report/put3/get/" + $("#caseDate").val();
+            initData(url, dataList);
+        });
+        $("#put4").click(function () {
+            let dataList = [{"data": "caseDate", "title": "填报日期"},
+                {"data": "pgroupname", "title": "机构名称"},
+                {"data": "groupname", "title": "部门名称"},
+                {"data": "name", "title": "姓名"},
+                {"data": "userPhone", "title": "联系电话"},
+                {"data": "userCard", "title": "身份证号"},
+                {"data": "userCity", "title": "当前城市"},
+                {"data": "userCommunity", "title": "社区/小区"},
+                {"data": "userBuilding", "title": "楼栋单元"},
+                {"data": "hvaleav", "title": "是否离开宁夏"},
+                {"data": "strokeDest", "title": "目的地"},
+                {"data": "strokeVia", "title": "是否途经武汉"},
+                {"data": "strokeDateGo", "title": "离宁时间"},
+                {"data": "strokeDateBack", "title": "返宁时间"},
+                {"data": "isolationDate", "title": "居家隔离时间"},
+                {"data": "touchingSign", "title": "是否有病毒感染确诊病例解除史"},
+                {"data": "bodySign", "title": "本人或家属身体状态"},
+                {"data": "bodycase", "title": "症状"},
+                {"data": "userCallCommunity", "title": "有无向社区申报"},
+                {"data": "bodyTemperature", "title": "今日体温"},
+                {"data": "doctorSign", "title": "是否就医"},
+                {"data": "hospital", "title": "就医医院"},
+                {"data": "doctorTime", "title": "就医时间"},
+                {"data": "dectorInfo", "title": "医生诊断"},
+                {"data": "touchingExplain", "title": "其他"}];
+            let url = getURLroot() + "/rest/report/put4/get/" + $("#caseDate").val();
+            initData(url, dataList);
+        });
+        /**
+         * 初始化数据
+         * @returns {undefined}
+         */
+        function initData(url, dataList) {
+            var table = $('#datatable-id').DataTable({
+                "processing": true,
+                "paging": false,
+                "scrollY": "600px",
+                "bDestroy": true,
+                "dom": 'Bfrtip',
+                "buttons": [{
+                    "text": "Excle",
+                    "extend": 'excelHtml5'
+                }, {
+                    "text": "Copy",
+                    "extend": 'copyHtml5'
+                }, {
+                    "text": "CSV",
+                    "extend": 'csvHtml5'
+                }, {
+                    "text": "打印",
+                    "extend": 'print'
+                }],
+                "ajax": {
+                    "url": url,
+                    "dataSrc": function (json) {
+                        return json.datas === undefined ? [] : json.datas;
+                    }
+                },
+                "columns": dataList,
+                "initComplete": function () {
+                    //
+                }
+            });
+        }
+    });
+</script>
+</body>
+</html>

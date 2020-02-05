@@ -1,0 +1,53 @@
+#=================================================================================
+# 服务器设置
+server:
+    name: yc-case-report
+    #设定http监听端口
+    # port: 8080
+#=================================================================================
+# spring 组件相关设置
+spring:
+    datasource:
+        #name: "yc-etc"
+        #数据库端口
+        port: 3306
+        #=========================================================================
+        #数据源列表,动态加载数据源依据
+        #=========================================================================
+        dynamic-datasources: master, slave
+        master:
+            url: jdbc:mysql://mysql8-master:${spring.datasource.port}/ccase_info?characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8&allowPublicKeyRetrieval=true
+            username: ycmvp
+            password: Ycfh@1234
+            # com.mysql.cj.jdbc.Driver
+            driver-class-name: com.mysql.jdbc.Driver
+            #=====================================================================
+            package-names: ccase
+            package-ccase-def: "*"
+        slave:
+            url: jdbc:mysql://mysql8-slave:${spring.datasource.port}/ccase_info?characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8&allowPublicKeyRetrieval=true
+            username: ycmvp
+            password: Ycfh@1234
+            driver-class-name: com.mysql.jdbc.Driver
+            #=====================================================================
+            package-names: ccase
+            package-ccase-def: "*"
+    #=========================================================================
+    thymeleaf:
+        # 缓存开发测试中关闭
+        cache: false
+    #=========================================================================
+# 其他辅助框架相关配置
+#=================================================================================
+# 自定义参数相关配置
+case-report-params:
+    # 加密口令
+    passwordkey: "cmb$51432"
+    # 文件解析规则
+    code-map:
+        am:
+            a: "\\$"
+            b: "\\&"
+            c: "\\|"
+
+#=================================================================================

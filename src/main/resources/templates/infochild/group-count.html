@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+
+<html lang="zh-Hans"
+      xmlns:th="http://www.thymeleaf.org">
+
+<th:block th:fragment="modal">
+    <div class="weui-cell px-2">
+        <div class="weui-cell__hd list-tit px-4 mx-2">查询时间</div>
+        <div class="weui-cell__bd list-tit px-2">
+            <input class="weui-input" type="text" placeholder="查询时间" id="group-date">
+        </div>
+    </div>
+    <div class="weui-cells" id="group-count"></div>
+</th:block>

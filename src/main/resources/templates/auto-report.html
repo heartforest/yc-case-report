@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <head th:replace="link/head :: head"></head>
+    <head th:replace="link/head :: jQuery"></head>
+    <head th:replace="link/head :: weui"></head>
+    <head th:replace="link/head :: bootstrap"></head>
+    <head th:replace="link/head :: animate"></head>
+    <head th:replace="link/head :: fontawesome"></head>
+    <head th:replace="link/head :: datatables"></head>
+    <head th:replace="link/head :: idx"></head>
+    <title th:text="招商银行银川分行-新型冠状病毒肺炎防控信息统计"></title>
+</head>
+<body>
+<div class="container-fluid">
+    <h3 class="text-center cmb-red font-weight-bold">招商银行银川分行</h3>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">起始时间</span>
+        </div>
+        <input type="text" class="form-control" placeholder="起始时间" aria-label="start" id="startDate">
+        <div class="input-group-append">
+            <span class="input-group-text">截至时间</span>
+        </div>
+        <input type="text" class="form-control" placeholder="截至时间" aria-label="start" id="endDate">
+    </div>
+    <hr>
+    <table id="datatable-id" class="display row-border cell-border hover stripe datatables-font"></table>
+    <div class="weui-footer mt-4">
+        <p class="weui-footer__text">Copyright © 招商银行银川分行</p>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function () {
+        let dataList = [{"data": "caseDate", "title": "填报日期"},
+            {"data": "pgroupname", "title": "机构名称"},
+            {"data": "groupname", "title": "部门名称"},
+            {"data": "name", "title": "姓名"},
+            {"data": "userCity", "title": "城市"},
+            {"data": "userCommunity", "title": "社区"},
+            {"data": "strokeDest", "title": "行程-目的地"},
+            {"data": "strokeVia", "title": "途径武汉"},
+            {"data": "touchingSign", "title": "接触史"},
+            {"data": "bodySign", "title": "本人或家属身体状态"},
+            {"data": "bodycase", "title": "症状描述"},
+            {"data": "doctorSign", "title": "是否就医"},
+            {"data": "hospital", "title": "就医医院"},
+            {"data": "doctorTime", "title": "就医时间"},
+            {"data": "dectorInfo", "title": "医生诊断"},
+            {"data": "caseExplain", "title": "其他"}];
+        let url = getURLroot() + "/rest/report/get";
+        initData(url, dataList);
+    });
+    /**
+     * 初始化数据
+     * @returns {undefined}
+     */
+    function initData(url, dataList) {
+        var table = $('#datatable-id').DataTable({
+            "processing": true,
+            "paging": false,
+            "scrollY": "600px",
+            "bDestroy": true,
+            "dom": 'Bfrtip',
+            "buttons": [{
+                "text": "Excle",
+                "extend": 'excelHtml5'
+            }, {
+                "text": "Copy",
+                "extend": 'copyHtml5'
+            }, {
+                "text": "CSV",
+                "extend": 'csvHtml5'
+            }, {
+                "text": "打印",
+                "extend": 'print'
+            }],
+            "ajax": {
+                "url": url,
+                "dataSrc": function (json) {
+                    return json.datas === undefined ? [] : json.datas;
+                }
+            },
+            "columns": dataList,
+            "initComplete": function () {
+                //
+            }
+        });
+    }
+</script>
+</body>
+</html>
