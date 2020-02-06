@@ -47,11 +47,9 @@ public class InfoRestController {
                 tabUser.setUserid(assistantConfig.getPrimary());
                 tabUserMapper.create(tabUser);
             } else if(tu.getUserCard() == null || "".equals(tu.getUserCard()) || tu.getUserCard().equals(tabUser.getUserCard())) {
-                tabUser.setUserid(tu.getUserid());
-                tabUserMapper.edit(tabUser);
+                tabUser = editUserData(tu, tabUser);
             } else if(tu.getUpdateKey().equals(tabUser.getUpdateKey())) {
-                tabUser.setUserid(tu.getUserid());
-                tabUserMapper.edit(tabUser);
+                tabUser = editUserData(tu, tabUser);
             } else {
                 tabUser.setUserid(tu.getUserid());
             }
@@ -61,6 +59,21 @@ public class InfoRestController {
             log.warn("--->>> error ---> {} <<<---", e.toString());
             return Page.fail("提交失败:".concat(e.toString().substring(0, 50)));
         }
+    }
+
+    private TabUser editUserData(TabUser srcTabUser, TabUser tagTabUser) {
+        tagTabUser.setUserStatus(srcTabUser.getUserStatus());
+        tagTabUser.setSapid(srcTabUser.getSapid());
+        tagTabUser.setAowid(srcTabUser.getAowid());
+        tagTabUser.setSex(srcTabUser.getSex());
+        tagTabUser.setOrgSrc(srcTabUser.getOrgSrc());
+        tagTabUser.setUserType(srcTabUser.getUserType());
+        tagTabUser.setUserPost(srcTabUser.getUserPost());
+        tagTabUser.setUserJob(srcTabUser.getUserJob());
+        tagTabUser.setUserAge(srcTabUser.getUserAge());
+        tagTabUser.setUserid(srcTabUser.getUserid());
+        tabUserMapper.edit(tagTabUser);
+        return tagTabUser;
     }
 
     @PostMapping("/save/case-user")

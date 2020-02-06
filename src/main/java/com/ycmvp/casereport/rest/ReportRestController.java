@@ -129,4 +129,11 @@ public class ReportRestController {
 //            return Page.fail("请先输入口令");
 //        }
     }
+
+    @GetMapping("/autoview/{viewname}/{caseDate}")
+    public Map findAutoViewname(@PathVariable String viewname, @PathVariable String caseDate) {
+        LocalDate localDate = LocalDate.from(DateTimeFormatter.ofPattern("yyyy-MM-dd").parse(caseDate));
+        List datas = viewCaseMapper.findAutoViewname(viewname, localDate);
+        return Page.ok(datas);
+    }
 }

@@ -58,13 +58,30 @@ function initSelect() {
         multi: true,
         items: ["发热（37.3度以上）", "咳嗽", "咽喉疼痛", "头疼", "流鼻涕", "其他"]
     });
+    // 工作及休息情况
+    $("#workStatus").select({
+        title: "工作及休息情况",
+        multi: true,
+        items: ["居家休息", "居家远程办公", "现场办公"]
+    });
+    // 隔离原因
+    $("#isolationStatus").select({
+        title: "隔离原因",
+        multi: true,
+        items: ["政府强制", "行内要求", "主动隔离", "解除隔离"]
+    });
     // 与本人关系
     $("#touchingUserRelat").select({
         title: "与本人关系",
         multi: true,
         items: ["亲友", "同事", "其他"]
     });
-
+    // 紧急联系人关系
+    $("#userUrgentRelat").select({
+        title: "与紧急联系人关系",
+        multi: true,
+        items: ["父母", "配偶", "亲戚", "好友", "同事", "同学", "其他"]
+    });
 }
 
 function initDate() {
@@ -81,8 +98,12 @@ function initDate() {
     $("#strokeDateBack").calendar({
         "dateFormat": 'yyyy-mm-dd'
     });
-    // 隔离时间
+    // 开始隔离日期
     $("#isolationDate").calendar({
+        "dateFormat": 'yyyy-mm-dd'
+    });
+    // 预计解除隔离日期
+    $("#unisolationDate").calendar({
         "dateFormat": 'yyyy-mm-dd'
     });
     // 就医时间
@@ -110,8 +131,8 @@ function initGroup() {
         let groupInfo = data["tab_group_info"];
         for(let idx in groupInfo) {
             let groupname = groupInfo[idx].groupname;
-            if(groupname === "行长室") continue;
             orgList.push(groupname);
+            if(groupname === "行长室") continue;
             html += "<div class=\"weui-cell\">" +
                 "   <div class=\"weui-cell__hd\">" +
                 "       <label class=\"weui-label text-right list-tit\">" + groupname + "</label>" +

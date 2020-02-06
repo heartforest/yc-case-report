@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+
+<html lang="zh-Hans"
+      xmlns:th="http://www.thymeleaf.org">
+
+<th:block th:fragment="modal">
+    <div class="weui-cells">
+
+        <div class="weui-cell weui-cell_switch">
+            <div class="weui-cell__hd">
+                <label class="weui-label list-tit">27.身体状态</label>
+            </div>
+            <div class="weui-cell__bd">
+                <input class="weui-input must" type="text" placeholder="本人或家属身体状态" aria-label="本人或家属身体状态" name="case-user" id="bodySign" value="无症状"  valt="有症状" valf="无症状">
+            </div>
+            <div class="weui-cell__ft">
+                <i class="fa fa-star text-danger"></i>
+                <input class="weui-switch" type="checkbox" actname="bodySign" name="bodySign">
+            </div>
+        </div>
+        <div class="weui-cell font-italic list-must text-primary">
+            <i class="fa fa-location-arrow text-success"></i>
+            本人或家属身体状态.
+        </div>
+
+        <div class="weui-cell weui-cell_switch d-none" name="bodySign-cell">
+            <div class="weui-cell__hd">
+                <label class="weui-label list-tit">28.症状描述</label>
+            </div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" type="text" placeholder="症状描述" name="case-user" id="bodycase">
+            </div>
+            <div class="weui-cell__ft">
+                <i class="fa fa-reply-all text-primary"></i>
+            </div>
+        </div>
+
+        <div class="weui-cell weui-cell_switch">
+            <div class="weui-cell__hd">
+                <label class="weui-label list-tit">29.是否隔离</label>
+            </div>
+            <div class="weui-cell__bd">
+                <input class="weui-input must" type="text" placeholder="是否被隔离" aria-label="是否被隔离" name="case-user" id="isolationTag" value="否"  valt="是" valf="否">
+            </div>
+            <div class="weui-cell__ft">
+                <i class="fa fa-star text-danger"></i>
+                <input class="weui-switch" type="checkbox" actname="isolationTag" name="isolationTag">
+            </div>
+        </div>
+        <div class="weui-cell font-italic list-must text-primary">
+            <i class="fa fa-location-arrow text-success"></i>
+            是否处于隔离.
+        </div>
+
+        <div class="weui-cell weui-cell_switch d-none" name="isolationTag-cell">
+            <div class="weui-cell__hd">
+                <label class="weui-label list-tit">30.隔离原因</label>
+            </div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" type="text" placeholder="隔离原因" name="case-user" id="isolationStatus">
+            </div>
+            <div class="weui-cell__ft">
+                <i class="fa fa-reply-all text-primary"></i>
+            </div>
+        </div>
+        <div class="weui-cell font-italic list-must text-primary d-none" name="isolationTag-cell">
+            <i class="fa fa-location-arrow text-success"></i>
+            政府强制隔离包括政府、社区要求的医学观察（因亲属为确诊或疑似病例有密切接触等）；
+        </div>
+        <div class="weui-cell font-italic list-must text-primary d-none" name="isolationTag-cell">同乘交通工具或小区有确诊病例被强制封闭隔离；</div>
+        <div class="weui-cell font-italic list-must text-primary d-none" name="isolationTag-cell">因与确诊病例同期到过集市、商超等地隔离；</div>
+        <div class="weui-cell font-italic list-must text-primary d-none" name="isolationTag-cell">当地政府要求外地返回须隔离等情况。</div>
+        <div class="weui-cell font-italic list-must text-primary d-none" name="isolationTag-cell">行内要求隔离包括外地返回工作地；</div>
+        <div class="weui-cell font-italic list-must text-primary d-none" name="isolationTag-cell">小区非同楼栋出现确诊案例，政府未强制封闭但行内要求居家隔离等情况。</div>
+        <div class="weui-cell font-italic list-must text-primary d-none" name="isolationTag-cell">主动隔离包括本人出现发烧、咳嗽等身体异常状况，自行居家观察。</div>
+
+        <div class="weui-cell list-tit d-none" name="isolationTag-cell">31.隔离描述</div>
+        <div class="weui-cell d-none" name="isolationTag-cell">
+            <div class="weui-cell__bd">
+                <textarea class="weui-textarea" placeholder="例如: 1月28日员工母亲确诊，员工已被隔离，1月30日出现发烧、咳嗽症状。" rows="3" name="case-user" id="isolationDescription"></textarea>
+                <div class="weui-textarea-counter"><span>0</span>/200</div>
+            </div>
+        </div>
+        <div class="weui-cell font-italic list-must text-primary d-none" name="isolationTag-cell">
+            <i class="fa fa-location-arrow text-success"></i>
+            简述员工是否密切接触确诊/疑似病例（特别注意有无亲属、好友诊断为确诊/疑似病例）；
+        </div>
+        <div class="weui-cell font-italic list-must text-primary d-none" name="isolationTag-cell">是否与确诊/疑似病例同乘车、船、飞机或同住一小区或楼栋；</div>
+        <div class="weui-cell font-italic list-must text-primary d-none" name="isolationTag-cell">是否出现发热、咳嗽等症状；</div>
+        <div class="weui-cell font-italic list-must text-primary d-none" name="isolationTag-cell">于何时接触确诊/疑似病例；</div>
+        <div class="weui-cell font-italic list-must text-primary d-none" name="isolationTag-cell">车、船、飞机、小区何时发现确诊/疑似病例；</div>
+        <div class="weui-cell font-italic list-must text-primary d-none" name="isolationTag-cell">何时出现发热、咳嗽等症状等</div>
+
+        <div class="weui-cell d-none" name="isolationTag-cell">
+            <div class="weui-cell__hd">
+                <label class="weui-label list-tit">32.隔离日期</label>
+            </div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" type="text" placeholder="开始隔离日期" name="case-user" id="isolationDate">
+            </div>
+            <div class="weui-cell__ft">
+                <i class="fa fa-reply-all text-primary"></i>
+            </div>
+        </div>
+        <div class="weui-cell font-italic list-must text-primary d-none" name="isolationTag-cell">开始隔离日期</div>
+
+        <div class="weui-cell d-none" name="isolationTag-cell">
+            <div class="weui-cell__hd">
+                <label class="weui-label list-tit">33.解除日期</label>
+            </div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" type="text" placeholder="预计解除隔离日期" name="case-user" id="unisolationDate">
+            </div>
+            <div class="weui-cell__ft">
+                <i class="fa fa-reply-all text-primary"></i>
+            </div>
+        </div>
+        <div class="weui-cell font-italic list-must text-primary d-none" name="isolationTag-cell">预计解除隔离日期</div>
+
+        <div class="weui-cell weui-cell_switch" id="li-d">
+            <div class="weui-cell__hd">
+                <label class="weui-label list-tit">34.是否就医</label>
+            </div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" type="text" placeholder="是否就医" name="case-user" id="doctorSign" value="否" valt="是" valf="否">
+            </div>
+            <div class="weui-cell__ft">
+                <input class="weui-switch" type="checkbox" actname="doctorSign" name="doctorSign">
+            </div>
+        </div>
+
+        <div class="weui-cell weui-cell_switch d-none" name="doctorSign-cell">
+            <div class="weui-cell__hd">
+                <label class="weui-label list-tit">35.就医医院</label>
+            </div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" type="text" placeholder="就医医院" name="case-user" id="hospital">
+            </div>
+            <div class="weui-cell__ft">
+                <i class="fa fa-reply-all text-primary"></i>
+            </div>
+        </div>
+
+        <div class="weui-cell d-none" name="doctorSign-cell">
+            <div class="weui-cell__hd">
+                <label class="weui-label list-tit">36.就医时间</label>
+            </div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" type="text" placeholder="就医时间" name="case-user" id="doctorTime">
+            </div>
+            <div class="weui-cell__ft">
+                <i class="fa fa-reply-all text-primary"></i>
+            </div>
+        </div>
+
+        <div class="weui-cell list-tit d-none" name="doctorSign-cell">37.医生诊断</div>
+        <div class="weui-cell d-none" name="doctorSign-cell">
+            <div class="weui-cell__bd">
+                <textarea class="weui-textarea" placeholder="医生诊断" rows="3" name="case-user" id="dectorInfo"></textarea>
+                <div class="weui-textarea-counter"><span>0</span>/200</div>
+            </div>
+        </div>
+
+        <div class="weui-cell list-tit">38.其他</div>
+        <div class="weui-cell">
+            <div class="weui-cell__bd">
+                <textarea class="weui-textarea" placeholder="其他" rows="3" name="case-user" id="caseExplain"></textarea>
+                <div class="weui-textarea-counter"><span>0</span>/200</div>
+            </div>
+        </div>
+
+        <div class="weui-cell">
+            <div class="weui-loadmore d-none" id="save-case-isolation-loading">
+                <i class="weui-loading"></i>
+                <span class="weui-loadmore__tips">正在提交</span>
+            </div>
+            <button class="weui-btn weui-btn_default bg-success text-white mx-4 px-4" type="button" id="save-case-isolation">下一步</button>
+        </div>
+    </div>
+</th:block>

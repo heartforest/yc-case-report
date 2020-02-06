@@ -15,5 +15,17 @@ public class TabUser implements Serializable {
     private String groupname;
     private String userPhone;
     private String userCard;
+    private String userStatus;
+    private String sapid;
+    private String aowid;
+    private String sex;
+    private String orgSrc;
+    private String userType;
+    private String userPost;
+    private String userUrgentPhone;
+    private String userUrgentName;
+    private String userUrgentRelat;
+    private String userJob;
+    private String userAge;
 
 }

@@ -22,8 +22,6 @@ public class TabCaseUser implements Serializable {
     private java.time.LocalDate strokeDateGo;
     @JsonFormat(pattern = "yyyy-MM-dd", timezone = "Asia/Shanghai")
     private java.time.LocalDate strokeDateBack;
-    @JsonFormat(pattern = "yyyy-MM-dd", timezone = "Asia/Shanghai")
-    private java.time.LocalDate isolationDate;
     private String strokeDescription;
     private String touchingSign;
     private String bodySign;
@@ -41,5 +39,15 @@ public class TabCaseUser implements Serializable {
     private String userMeet;
     private String userPubPlace;
     private String bodyTemperature;
+    private String isolationTag;
+    @JsonFormat(pattern = "yyyy-MM-dd", timezone = "Asia/Shanghai")
+    private java.time.LocalDate isolationDate;
+    @JsonFormat(pattern = "yyyy-MM-dd", timezone = "Asia/Shanghai")
+    private java.time.LocalDate unisolationDate;
+    private String isolationStatus;
+    private String isolationDescription;
+    private String workStatus;
+    private Integer epidemicCommunityCount;
+    private String strandedSign;
 
 }

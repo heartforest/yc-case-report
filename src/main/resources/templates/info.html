@@ -40,9 +40,9 @@
 <div class="weui-tab">
     <div class="weui-navbar">
         <a class="weui-navbar__item font-weight-bold text-white bg-primary weui-bar__item--on" href="#tab1" id="bar1">基本信息</a>
-        <a class="weui-navbar__item font-weight-bold" href="#tab2" id="bar2">本人填报</a>
-        <a class="weui-navbar__item font-weight-bold" href="#tab3" id="bar3">家属填报</a>
-        <a class="weui-navbar__item font-weight-bold d-none" href="#tab4" id="bar4">既往填报</a>
+        <a class="weui-navbar__item font-weight-bold" href="#tab2" id="bar2">本人填报1</a>
+        <a class="weui-navbar__item font-weight-bold" href="#tab3" id="bar3">本人填报2</a>
+        <a class="weui-navbar__item font-weight-bold" href="#tab4" id="bar4">家属填报</a>
     </div>
     <div class="weui-tab__bd">
         <div id="tab1" class="weui-tab__bd-item weui-tab__bd-item--active">
@@ -52,31 +52,29 @@
             <div th:replace="infochild/case-user :: modal"></div>
         </div>
         <div id="tab3" class="weui-tab__bd-item">
-            <div th:replace="infochild/case-touching :: modal"></div>
+            <div th:replace="infochild/case-isolation :: modal"></div>
         </div>
         <div id="tab4" class="weui-tab__bd-item">
+            <div th:replace="infochild/case-touching :: modal"></div>
+        </div>
+    </div>
+</div>
+
+<div class="weui-tab">
+    <div class="weui-navbar">
+        <a class="weui-navbar__item font-weight-bold text-success weui-bar__item--on" href="#tab10" id="bar10">既往填报</a>
+        <a class="weui-navbar__item font-weight-bold text-success" href="#tab11" id="bar11">信息统计</a>
+    </div>
+    <div class="weui-tab__bd">
+        <div id="tab10" class="weui-tab__bd-item weui-tab__bd-item--active">
             <div th:replace="infochild/case-his :: modal"></div>
         </div>
-    </div>
-</div>
-<hr>
-<div class="weui-footer weui-tab mt-4">
-    <div class="weui-cell weui-cell_switch">
-        <div class="weui-cell__hd">
-            <label class="weui-label list-tit">信息统计</label>
-        </div>
-        <div class="weui-cell__bd">
-            <input class="weui-input must" type="text">
-        </div>
-        <div class="weui-cell__ft">
-            <input class="weui-switch" type="checkbox" id="group-check">
+        <div id="tab11" class="weui-tab__bd-item">
+            <div th:replace="infochild/group-count :: modal"></div>
         </div>
     </div>
 </div>
-<hr>
-<div class="weui-footer mt-4 d-none" id="group-div">
-    <div th:replace="infochild/group-count :: modal"></div>
-</div>
+
 <div class="weui-footer mt-4">
     <p class="weui-footer__text">Copyright © 招商银行银川分行</p>
 </div>

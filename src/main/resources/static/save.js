@@ -51,12 +51,14 @@ $(function() {
                 $("#save-user").removeClass("d-none");
                 if(json.success) {
                     // 下一步
-                    $("#main-progress").attr("style", "width: 33%;");
+                    $("#main-progress").attr("style", "width: 25%;");
                     $("#bar1").removeClass("bg-primary");
                     $("#bar1").addClass("text-white bg-success");
                     $("#bar2").addClass("text-white bg-primary");
                     $("#bar2").click();
                     userData = json.data;
+                    $("#bar2").focus();
+                    $.alert("基本信息保存完成，请继续填报信息", "提示");
                 } else {
                     $.alert("保存异常:[" + json.msg + "]", "警告");
                 }
@@ -64,10 +66,20 @@ $(function() {
         });
     });
     // ------------------------------------------------------------------------------------------- save caseUser
+    $("#save-case-user").click(function() {
+        // 下一步
+        $("#main-progress").attr("style", "width: 50%;");
+        $("#bar2").removeClass("bg-primary");
+        $("#bar2").addClass("text-white bg-success");
+        $("#bar3").addClass("text-white bg-primary");
+        $("#bar3").click();
+        $("#bar3").focus();
+    });
+    // ------------------------------------------------------------------------------------------- save isolation
     /**
      * save caseUser 提交
      */
-    $("#save-case-user").click(function() {
+    $("#save-case-isolation").click(function() {
         //userData["userid"] = "1580288736018-001-0-61";
         if(userData["userid"] === undefined || userData["userid"] === "" || userData["userid"] === null) {
             $.alert("请先填写基本信息并点[提交基本信息]", "警告");
@@ -99,10 +111,11 @@ $(function() {
         //
         if(!check) {
             $.alert("请填写:[" + $(obj).attr("aria-label") + "]", "警告");
+            $(obj).focus();
             return;
         }
-        $("#save-case-user-loading").removeClass("d-none");
-        $("#save-case-user").addClass("d-none");
+        $("#save-case-isolation-loading").removeClass("d-none");
+        $("#save-case-isolation").addClass("d-none");
         $.ajax({
             url: getURLroot() + "/rest/info/save/case-user",
             type: "POST",
@@ -110,18 +123,19 @@ $(function() {
             dataTpye: "json",
             data: JSON.stringify(caseUserData),
             success: function (json) {
-                $("#save-case-user-loading").addClass("d-none");
-                $("#save-case-user").removeClass("d-none");
+                $("#save-case-isolation-loading").addClass("d-none");
+                $("#save-case-isolation").removeClass("d-none");
                 if(json.success) {
                     // 下一步
-                    $("#main-progress").attr("style", "width: 66%;");
-                    $("#bar2").removeClass("bg-primary");
-                    $("#bar2").addClass("text-white bg-success");
-                    $("#bar3").addClass("text-white bg-primary");
-                    $("#bar3").click();
-                    console.log(json);
+                    $("#main-progress").attr("style", "width: 75%;");
+                    $("#bar3").removeClass("bg-primary");
+                    $("#bar3").addClass("text-white bg-success");
+                    $("#bar4").addClass("text-white bg-primary");
+                    $("#bar4").click();
                     caseUserData = json.data;
-                    console.log(caseUserData);
+                    $("#bar4").focus();
+                    $.alert("基本信息保存完成，请继续填报信息", "提示");
+                    getUserReportInfo();
                 } else {
                     $.alert("保存异常:[" + json.msg + "]", "警告");
                 }
@@ -132,7 +146,7 @@ $(function() {
     /**
      * save caseTouching 提交
      */
-    $("#save-case-touching-user").click(function() {
+    $("#save-case-touching").click(function() {
         //caseUserData["fkCaseUserId"] = "1580589135779-001-0-1";
         //caseUserData["userid"] = "1580288736018-001-0-61";
         if(caseUserData["id"] === undefined || caseUserData["id"] === "" || caseUserData["id"] === null) {
@@ -168,8 +182,8 @@ $(function() {
             $.alert("请填写:[" + $(obj).attr("aria-label") + "]", "警告");
             return;
         }
-        $("#save-case-touching-user-loading").removeClass("d-none");
-        $("#save-case-touching-user").addClass("d-none");
+        $("#save-case-touching-loading").removeClass("d-none");
+        $("#save-case-touching").addClass("d-none");
         $.ajax({
             url: getURLroot() + "/rest/info/save/case-touching",
             type: "POST",
@@ -177,17 +191,15 @@ $(function() {
             dataTpye: "json",
             data: JSON.stringify(caseTouchingData),
             success: function (json) {
-                $("#save-case-touching-user-loading").addClass("d-none");
-                $("#save-case-touching-user").removeClass("d-none");
+                $("#save-case-touching-loading").addClass("d-none");
+                $("#save-case-touching").removeClass("d-none");
                 if(json.success) {
                     // 下一步
                     $("#main-progress").attr("style", "width: 100%;");
-                    $("#bar3").removeClass("bg-primary");
-                    $("#bar3").addClass("text-white bg-success");
-                    $("#bar4").addClass("text-white bg-primary");
+                    $("#bar4").removeClass("bg-primary");
+                    $("#bar4").addClass("text-white bg-success");
                     $.alert("提交完成，您可查询既往填报", "感谢支持");
                     caseTouchingData = json.data;
-                    getUserReportInfo();
                     getGroupCount();
                 } else {
                     $.alert("保存异常:[" + json.msg + "]", "警告");
@@ -203,7 +215,6 @@ $(function() {
 function getUserReportInfo() {
     $.getJSON(getURLroot() + "/rest/info/get/user/" + userData["userid"], {}, function(json) {
         let tabCaseUsers = json.datas;
-        $("#bar4").removeClass("d-none");
         // 既往
         if(tabCaseUsers !== null) {
             let html = "";
@@ -218,6 +229,7 @@ function getUserReportInfo() {
                     + "    </div>"
                     + "</div>";
             }
+            $("#case-his").children().remove();
             $("#case-his").html(html);
         }
     });
@@ -275,5 +287,13 @@ function getCaseDateByUserid(tag) {
                 }
             });
         }
+        // 是否离开武汉
+        if($("#strokeDest").val() === undefined || $("#strokeDest").val() === "") {
+            //
+        } else {
+            $("input[type=checkbox][name=strokeDest-checkbox]").click();
+        }
+        // 获取既往填报信息
+        getUserReportInfo();
     });
 }

@@ -1,9 +1,14 @@
 package com.ycmvp.casereport.mapper.ccase;
 
 import com.ycmvp.casereport.entity.ccase.ViewCase;
-import org.apache.ibatis.annotations.*;
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Component;
+
+import java.time.LocalDate;
 import java.util.List;
+import java.util.Map;
 
 @Mapper
 @Component
@@ -20,5 +25,10 @@ public interface ViewCaseMapper {
     int count();
 
     //--->>> others <---
+
+    @Select("SELECT * " +
+            "FROM #{viewname} tu " +
+            "WHERE CASE_DATE=#{caseDate} ")
+    List<Map> findAutoViewname(@Param("viewname") String viewname, @Param("viewname") LocalDate caseDate);
 
 }
