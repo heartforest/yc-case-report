@@ -23,8 +23,11 @@ import java.util.Map;
 @ToString(exclude = {"mapperLowerCamel", "mapper_snake"})
 public class CaseReportConfig {
     private Long signRedisTimeOut = 3600L;
+    // 修理模式 debug / prod
+    private String debug;
     // 口令
     private String passwordkey;
+    private String passwordkey2;
     // 码规则
     private Map codeMap;
     //

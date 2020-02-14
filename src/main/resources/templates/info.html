@@ -62,15 +62,19 @@
 
 <div class="weui-tab">
     <div class="weui-navbar">
-        <a class="weui-navbar__item font-weight-bold text-success weui-bar__item--on" href="#tab10" id="bar10">既往填报</a>
-        <a class="weui-navbar__item font-weight-bold text-success" href="#tab11" id="bar11">信息统计</a>
+        <a class="weui-navbar__item font-weight-bold weui-bar__item--on" name="bar-b" href="#tab10" id="bar10">既往填报</a>
+        <a class="weui-navbar__item font-weight-bold" href="#tab11" name="bar-b" id="bar11">信息统计</a>
+        <a class="weui-navbar__item font-weight-bold bg-success text-white weui-bar__item--on" name="bar-b" href="#tab12" id="bar12">填报审核</a>
     </div>
     <div class="weui-tab__bd">
-        <div id="tab10" class="weui-tab__bd-item weui-tab__bd-item--active">
+        <div id="tab10" class="weui-tab__bd-item">
             <div th:replace="infochild/case-his :: modal"></div>
         </div>
         <div id="tab11" class="weui-tab__bd-item">
             <div th:replace="infochild/group-count :: modal"></div>
+        </div>
+        <div id="tab12" class="weui-tab__bd-item weui-tab__bd-item--active">
+            <div th:replace="infochild/user-result :: modal"></div>
         </div>
     </div>
 </div>
@@ -78,7 +82,8 @@
 <div class="weui-footer mt-4">
     <p class="weui-footer__text">Copyright © 招商银行银川分行</p>
 </div>
-<script type="text/javascript" charset="UTF-8" th:src="@{/info.js}"></script>
-<script type="text/javascript" charset="UTF-8" th:src="@{/save.js}"></script>
+<script type="text/javascript" charset="UTF-8" th:src="@{/static/js/info.js}"></script>
+<script type="text/javascript" charset="UTF-8" th:src="@{/static/js/save.js}"></script>
+<script type="text/javascript" charset="UTF-8" th:src="@{/static/js/user-result.js}"></script>
 </body>
 </html>

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -93,11 +94,29 @@ public class InfoRestController {
             if(tcu == null) {
                 // 初次建立
                 tabCaseUser.setId(assistantConfig.getPrimary());
+                tabCaseUser.setExamineTime(null);
+                tabCaseUser.setExamineName(null);
+                tabCaseUser.setExamineUserid(null);
                 tabCaseUserMapper.create(tabCaseUser);
+            } else if(tcu.getExamineName() != null && !"".equals(tcu.getExamineName())) {
+                return Page.fail("填报信息不能修改，请部门负责人关闭检验标识后再进行修改!");
             } else {
                 tabCaseUser.setId(tcu.getId());
                 tabCaseUserMapper.edit(tabCaseUser);
             }
+            return Page.ok(tabCaseUser);
+        } catch (Exception e) {
+            e.printStackTrace();
+            log.warn("--->>> error ---> {} <<<---", e.toString());
+            return Page.fail("提交失败:".concat(e.toString().substring(0, 50)));
+        }
+    }
+
+    @PostMapping("/examine")
+    public Map examineAction(@RequestBody TabCaseUser tabCaseUser) {
+        try {
+            tabCaseUser.setExamineTime(LocalDateTime.now());
+            tabCaseUserMapper.editExamine(tabCaseUser);
             return Page.ok(tabCaseUser);
         } catch (Exception e) {
             e.printStackTrace();
@@ -125,6 +144,8 @@ public class InfoRestController {
                 // 初次建立
                 tabCaseTouching.setId(assistantConfig.getPrimary());
                 tabCaseTouchingMapper.create(tabCaseTouching);
+            } else if(tabCaseUser.getExamineName() != null && !"".equals(tabCaseUser.getExamineName())) {
+                return Page.fail("填报信息不能修改，请部门负责人关闭检验标识后再进行修改!");
             } else {
                 tabCaseTouching.setId(tut.getId());
                 tabCaseTouchingMapper.edit(tabCaseTouching);
@@ -159,6 +180,27 @@ public class InfoRestController {
     public Map getUserReportInfo(@PathVariable String userid) {
         List<TabCaseUser> tabCaseUsers = tabCaseUserMapper.findCaseDateByUserid(userid);
         return Page.ok(tabCaseUsers);
+    }
+
+    @GetMapping("/user/all/{userid}/{caseDate}")
+    public Map getUserInfoAll(@PathVariable String userid, @PathVariable String caseDate) {
+        LocalDate localDate = LocalDate.from(DateTimeFormatter.ofPattern("yyyy-MM-dd").parse(caseDate));
+        TabUser tabUser = tabUserMapper.find(userid);
+        if(tabUser == null) {
+            return Page.fail("查无此人");
+        }
+        TabCaseUser tabCaseUser = tabCaseUserMapper.findByUseridAndCaseDate(userid, localDate);
+        if(tabCaseUser == null) {
+            return Page.fail("未填报[".concat(tabUser.getName()).concat("]"));
+        }
+        TabCaseTouching tabCaseTouching = tabCaseTouchingMapper.findByFkCaseUserId(tabCaseUser.getId());
+        //
+        Map dataMap = new HashMap();
+        dataMap.put("tabUser", tabUser);
+        dataMap.put("tabCaseUser", tabCaseUser);
+        dataMap.put("tabCaseTouching", tabCaseTouching);
+        //
+        return Page.ok(dataMap);
     }
 
     private Map getCaseInfo(TabUser tabUser) {

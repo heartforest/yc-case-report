@@ -17,10 +17,17 @@ public class InfoController {
     private CaseReportConfig caseReportConfig;
 
     @GetMapping("")
-    public ModelAndView main(ModelAndView mv) {
-        mv.setViewName("info");
+    public ModelAndView info(ModelAndView mv) {
+        String mvVal = "info".equals(caseReportConfig.getDebug()) ? "info" : "sleep";
+        mv.setViewName(mvVal);
         mv.addObject("title", "( ^_^ )");
         return mv;
     }
 
+    @GetMapping("debug")
+    public ModelAndView debug(ModelAndView mv) {
+        mv.setViewName("info");
+        mv.addObject("title", "( ^_^ )");
+        return mv;
+    }
 }

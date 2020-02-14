@@ -11,7 +11,7 @@
                 <label class="weui-label list-tit">10.填报日期</label>
             </div>
             <div class="weui-cell__bd">
-                <input class="weui-input must" type="text" placeholder="填报日期: 2020-01-01" aria-label="填报日期" name="case-user" id="caseDate">
+                <input class="weui-input must" type="text" placeholder="填报日期: 2020-01-01" aria-label="10.填报日期" name="case-user" id="caseDate">
             </div>
             <div class="weui-cell__ft">
                 <i class="fa fa-reply-all text-primary"></i>
@@ -24,7 +24,7 @@
                 <label class="weui-label list-tit">11.当前城市</label>
             </div>
             <div class="weui-cell__bd">
-                <input class="weui-input must" type="text" placeholder="当前所在城市" aria-label="当前城市" name="case-user" id="userCity">
+                <input class="weui-input must" type="text" placeholder="当前所在城市" aria-label="11.当前城市" name="case-user" id="userCity">
             </div>
             <div class="weui-cell__ft">
                 <i class="fa fa-reply-all text-primary"></i>
@@ -45,7 +45,7 @@
                 <label class="weui-label list-tit">12.社区/小区</label>
             </div>
             <div class="weui-cell__bd">
-                <input class="weui-input must" type="text" placeholder="社区/小区: 例如民生花园" aria-label="社区/小区" name="case-user" id="userCommunity">
+                <input class="weui-input must" type="text" placeholder="社区/小区: 例如民生花园" aria-label="12.社区/小区" name="case-user" id="userCommunity">
             </div>
             <div class="weui-cell__ft">
                 <i class="fa fa-reply-all text-primary"></i>
@@ -58,7 +58,7 @@
                 <label class="weui-label list-tit">13.楼栋单元</label>
             </div>
             <div class="weui-cell__bd">
-                <input class="weui-input must" type="text" placeholder="楼栋单元" aria-label="楼栋单元" name="case-user" id="userBuilding">
+                <input class="weui-input must" type="text" placeholder="楼栋单元" aria-label="13.楼栋单元" name="case-user" id="userBuilding">
             </div>
             <div class="weui-cell__ft">
                 <i class="fa fa-reply-all text-primary"></i>
@@ -71,7 +71,7 @@
                 <label class="weui-label list-tit">14.是否离宁</label>
             </div>
             <div class="weui-cell__bd">
-                <input class="weui-input list-must" type="text" id="strokeDest-checkbox" placeholder="2020年1月8日(含)以后离开宁夏" valt="1月8日(含)后离开宁夏" valf="1月8日(含)后在宁夏">
+                <input class="weui-input list-must" type="text" id="strokeDest-checkbox" placeholder="2020年1月8日(含)以后离开宁夏" valt="1月8日(含)后离开宁夏" valf="1月8日(含)后在宁夏" aria-label="14.是否离宁" >
             </div>
             <div class="weui-cell__ft">
                 <i class="fa fa-star text-danger"></i>
@@ -80,66 +80,66 @@
         </div>
         <div class="weui-cell font-italic list-must text-primary">
             <i class="fa fa-location-arrow text-success"></i>
-            2020年1月8日(含)以后离开宁夏
+            2020年1月8日(含)以后离开宁夏,如需重置离宁相关信息，请点击此按钮。
         </div>
 
-        <div class="weui-cell d-none" name="strokeDest-cell">
+        <div class="weui-cell d-block">
             <div class="weui-cell__hd">
-                <label class="weui-label list-tit">15.目的地</label>
+                <label class="weui-label list-tit">15.出行目的地</label>
             </div>
             <div class="weui-cell__bd">
-                <input class="weui-input" type="text" placeholder="出行目的地" name="case-user" id="strokeDest">
+                <input class="weui-input" actname="strokeDest" type="text" placeholder="出行目的地" aria-label="15.目的地" name="case-user" id="strokeDest">
             </div>
             <div class="weui-cell__ft">
                 <i class="fa fa-reply-all text-primary"></i>
             </div>
         </div>
-        <div class="weui-cell d-none" name="strokeDest-cell">
+        <div class="weui-cell d-block">
             <div class="weui-cell__hd">
                 <label class="weui-label list-tit"></label>
             </div>
             <div class="weui-cell__bd">
-                <input type="text" class="weui-input list-input" placeholder="国外请在此录入" aria-label="国外请在此录入" id="strokeDest-oth">
+                <input type="text" class="weui-input list-input" placeholder="国外在此录入" aria-label="国外请在此录入" id="strokeDest-oth">
             </div>
         </div>
 
-        <div class="weui-cell d-none" name="strokeDest-cell">
+        <div class="weui-cell d-block">
             <div class="weui-cell__hd">
                 <label class="weui-label list-tit">16.离宁时间</label>
             </div>
             <div class="weui-cell__bd">
-                <input class="weui-input" type="text" placeholder="离宁时间" name="case-user" id="strokeDateGo">
+                <input class="weui-input" actname="strokeDest" type="text" placeholder="离宁时间" name="case-user" id="strokeDateGo" aria-label="16.离宁时间">
             </div>
             <div class="weui-cell__ft">
                 <i class="fa fa-reply-all text-primary"></i>
             </div>
         </div>
 
-        <div class="weui-cell d-none" name="strokeDest-cell">
+        <div class="weui-cell d-block">
             <div class="weui-cell__hd">
                 <label class="weui-label list-tit">17.返宁时间</label>
             </div>
             <div class="weui-cell__bd">
-                <input class="weui-input" type="text" placeholder="如果日期不定请勿选择" name="case-user" id="strokeDateBack">
+                <input class="weui-input" actname="strokeDest" type="text" placeholder="如果日期不定请勿选择" name="case-user" id="strokeDateBack" aria-label="17.返宁时间">
             </div>
             <div class="weui-cell__ft">
                 <i class="fa fa-reply-all text-primary"></i>
             </div>
         </div>
 
-        <div class="weui-cell weui-cell_switch" name="strokeDest-cell">
+        <div class="weui-cell weui-cell_switch">
             <div class="weui-cell__hd">
                 <label class="weui-label list-tit">18.有无前往湖北</label>
             </div>
             <div class="weui-cell__bd">
-                <input class="weui-input" type="text" placeholder="14天内有无湖北旅行、生活史" name="case-user" id="strokeVia" value="无" valt="有" valf="无">
+                <input class="weui-input" type="text" placeholder="14天内有无湖北旅行、生活史" name="case-user" id="strokeVia" value="无" valt="有" valf="无" aria-label="18.有无前往湖北">
             </div>
             <div class="weui-cell__ft">
                 <i class="fa fa-star text-danger"></i>
                 <input class="weui-switch" type="checkbox" name="strokeVia" value="否">
             </div>
         </div>
-        <div class="weui-cell font-italic list-must text-primary" name="strokeDest-cell">
+        <div class="weui-cell font-italic list-must text-primary">
             <i class="fa fa-location-arrow text-success"></i>
             14天内有无湖北旅行、生活史。
         </div>
@@ -149,7 +149,7 @@
                 <label class="weui-label list-tit">19.有无触史湖北亲友</label>
             </div>
             <div class="weui-cell__bd">
-                <input class="weui-input must" type="text" placeholder="14天内有无湖北/武汉亲友接触史" aria-label="14天内有无湖北/武汉亲友接触史" name="case-user" id="touchingSign" value="无" valt="有" valf="无">
+                <input class="weui-input must" type="text" placeholder="14天内有无湖北/武汉亲友接触史" aria-label="19.有无触史湖北亲友" name="case-user" id="touchingSign" value="无" valt="有" valf="无">
             </div>
             <div class="weui-cell__ft">
                 <i class="fa fa-star text-danger"></i>
@@ -161,35 +161,35 @@
             14天内有无湖北/武汉亲友接触史。
         </div>
 
-        <div class="weui-cell weui-cell_switch d-none" name="touchingSign-cell">
+        <div class="weui-cell weui-cell_switch d-block">
             <div class="weui-cell__hd">
                 <label class="weui-label list-tit">20.参加聚会</label>
             </div>
             <div class="weui-cell__bd">
-                <input class="weui-input" type="text" placeholder="接触后有无参加三人以上聚会" name="case-user" id="userMeet" value="否" valt="是" valf="否">
+                <input class="weui-input" type="text" placeholder="接触后有无参加三人以上聚会" name="case-user" id="userMeet" value="否" valt="是" valf="否" aria-label="20.接触后有无参加三人以上聚会">
             </div>
             <div class="weui-cell__ft">
                 <input class="weui-switch" type="checkbox" name="userMeet">
             </div>
         </div>
-        <div class="weui-cell font-italic list-must text-primary d-none" name="touchingSign-cell">
+        <div class="weui-cell font-italic list-must text-primary d-block">
             <i class="fa fa-location-arrow text-success"></i>
             接触湖北、感染人后有无参加三人以上聚会。
         </div>
 
-        <div class="weui-cell weui-cell_switch d-none" name="touchingSign-cell">
+        <div class="weui-cell weui-cell_switch d-block">
             <div class="weui-cell__hd">
                 <label class="weui-label list-tit">21.接触人群</label>
             </div>
             <div class="weui-cell__bd">
-                <input class="weui-input must" type="text" placeholder="接触后有无到人流密集场所" aria-label="接触人群" name="case-user" id="userPubPlace" value="否" valt="是" valf="否">
+                <input class="weui-input must" type="text" placeholder="接触后有无到人流密集场所" aria-label="21.接触后有无到人流密集场所" name="case-user" id="userPubPlace" value="否" valt="是" valf="否">
             </div>
             <div class="weui-cell__ft">
                 <i class="fa fa-star text-danger"></i>
                 <input class="weui-switch" type="checkbox" name="userPubPlace">
             </div>
         </div>
-        <div class="weui-cell font-italic list-must text-primary d-none" name="touchingSign-cell">
+        <div class="weui-cell font-italic list-must text-primary d-block">
             <i class="fa fa-location-arrow text-success"></i>
             接触湖北、感染人后有无到人流密集场所。
         </div>
@@ -199,7 +199,7 @@
                 <label class="weui-label list-tit">22.社区申报</label>
             </div>
             <div class="weui-cell__bd">
-                <input class="weui-input must" type="text" placeholder="有无向社区申报" aria-label="社区申报" name="case-user" id="userCallCommunity" value="未申报" valt="已申报" valf="未申报">
+                <input class="weui-input must" type="text" placeholder="有无向社区申报" aria-label="22.社区申报" name="case-user" id="userCallCommunity" value="未申报" valt="已申报" valf="未申报">
             </div>
             <div class="weui-cell__ft">
                 <i class="fa fa-star text-danger"></i>
@@ -216,7 +216,7 @@
                 <label class="weui-label list-tit">23.今日体温</label>
             </div>
             <div class="weui-cell__bd">
-                <input class="weui-input must" type="number" pattern="[0-9]*" placeholder="今日体温: 36.5" aria-label="今日体温" name="case-user" id="bodyTemperature">
+                <input class="weui-input must" type="number" pattern="[0-9]*" placeholder="今日体温: 36.5" aria-label="23.今日体温" name="case-user" id="bodyTemperature">
             </div>
             <div class="weui-cell__ft">
                 <i class="fa fa-reply-all text-primary"></i>
@@ -229,7 +229,7 @@
                 <label class="weui-label list-tit">24.确诊人数</label>
             </div>
             <div class="weui-cell__bd">
-                <input class="weui-input must" type="number" pattern="[0-9]" placeholder="单位：人" aria-label="确诊人数" value="0" name="case-user" id="epidemicCommunityCount">
+                <input class="weui-input must" type="number" pattern="[0-9]" placeholder="单位：人" aria-label="24.确诊人数" value="0" name="case-user" id="epidemicCommunityCount">
             </div>
             <div class="weui-cell__ft">
                 <i class="fa fa-reply-all text-primary"></i>
@@ -246,7 +246,7 @@
                 <label class="weui-label list-tit">25.工作情况</label>
             </div>
             <div class="weui-cell__bd">
-                <input class="weui-input must" type="text" placeholder="工作及休息情况" aria-label="工作情况" name="case-user" id="workStatus">
+                <input class="weui-input must" type="text" placeholder="工作及休息情况" aria-label="25.工作情况" name="case-user" id="workStatus">
             </div>
             <div class="weui-cell__ft">
                 <i class="fa fa-reply-all text-primary"></i>
@@ -263,7 +263,7 @@
                 <label class="weui-label list-tit">26.交通滞留</label>
             </div>
             <div class="weui-cell__bd">
-                <input class="weui-input must" type="text" placeholder="是否交通滞留: 默认否" aria-label="交通滞留" name="case-user" id="strandedSign" value="否" valt="是" valf="否">
+                <input class="weui-input must" type="text" placeholder="是否交通滞留: 默认否" aria-label="26.交通滞留" name="case-user" id="strandedSign" value="否" valt="是" valf="否">
             </div>
             <div class="weui-cell__ft">
                 <i class="fa fa-star text-danger"></i>

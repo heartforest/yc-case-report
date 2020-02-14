@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html lang="zh-Hans"
+      xmlns:th="http://www.thymeleaf.org">
+
+<th:block th:fragment="modal">
+    <div class="weui-cell px-2">
+        <div class="weui-cell__hd list-tit px-4 mx-2">填报时间</div>
+        <div class="weui-cell__bd list-tit px-2">
+            <input class="weui-input" type="text" placeholder="填报时间" id="result-date">
+        </div>
+    </div>
+    <div class="weui-cell px-2">
+        <div class="weui-cell__hd list-tit px-4 mx-2">填报人员</div>
+        <div class="weui-cell__bd list-tit px-2">
+            <input class="weui-input" type="text" placeholder="填报人员" id="result-user">
+        </div>
+    </div>
+    <div class="weui-cell list-must text-primary">
+        一、请<span class="text-danger">本人</span>再次核对填报信息！！！
+        <i class="fa fa-location-arrow text-success"></i>
+    </div>
+    <div class="weui-cell list-must text-primary">
+        二、请<span class="text-danger">部门负责人</span>请在此点击部门员工填报结果，逐一检查！！！
+        <i class="fa fa-location-arrow text-success"></i>
+    </div>
+    <div class="weui-cell list-must text-primary">
+        三、检查完成后逐一<span class="text-danger">点击</span>审核通过。
+        <i class="fa fa-location-arrow text-success"></i>
+    </div>
+    <div class="weui-cell list-must text-primary">
+        四、检验标记一旦通过，员工则无法进行修改，需要负责人取消检验，员工方可进行修改。
+        <i class="fa fa-location-arrow text-success"></i>
+    </div>
+    <div class="weui-loadmore d-none" id="result-user-loading">
+        <i class="weui-loading"></i>
+        <span class="weui-loadmore__tips">正在加载</span>
+    </div>
+    <div class="weui-cells" id="user-result"></div>
+</th:block>

@@ -24,14 +24,21 @@
             <span class="input-group-text">报表名称</span>
         </div>
         <input type="text" class="form-control" placeholder="报表名称" id="viewname">
-        <button class="weui-btn weui-btn_default bg-success text-white mx-4 px-4" type="button" id="select-report">查询</button>
+        <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="button" id="select-report">查询</button>
+        </div>
+        <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="button" id="btn-login-alert">登录</button>
+        </div>
     </div>
     <hr>
-    <table id="datatable-id" class="display row-border cell-border hover stripe datatables-font"></table>
+    <div id="tablePanal">
+        <table id="datatable-id" class="display table-striped table-hover table-bordered stripe datatables-font dataTables-example"></table>
+    </div>
     <div class="weui-footer mt-4">
         <p class="weui-footer__text">Copyright © 招商银行银川分行</p>
     </div>
 </div>
-<script type="text/javascript" charset="UTF-8" th:src="@{/report.js}"></script>
+<script type="text/javascript" charset="UTF-8" th:src="@{/static/js/report.js}"></script>
 </body>
 </html>

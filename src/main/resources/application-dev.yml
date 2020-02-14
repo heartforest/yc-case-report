@@ -41,8 +41,11 @@ spring:
 #=================================================================================
 # 自定义参数相关配置
 case-report-params:
+    # 修理模式 sleep / info
+    debug: info
     # 加密口令
     passwordkey: "cmb$51432"
+    passwordkey2: "cmb$9578"
     # 文件解析规则
     code-map:
         am:

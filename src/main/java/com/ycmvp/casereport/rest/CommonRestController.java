@@ -31,6 +31,7 @@ public class CommonRestController {
         Map dataMap = new HashMap();
         dataMap.put("groupCount", commonMapper.findGroupCount());
         dataMap.put("groupCountCase", commonMapper.findGroupCountCase(localDate));
+        dataMap.put("groupCountExamine", commonMapper.findGroupCountExamine(localDate));
         dataMap.put("groupItems", commonMapper.findGroupItems(localDate));
         return Page.ok(dataMap);
     }

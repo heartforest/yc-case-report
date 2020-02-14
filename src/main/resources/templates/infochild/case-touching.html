@@ -8,51 +8,54 @@
         <div class="weui-cell cells-tit">39.有无亲属2020年1月8日后从外地来宁（返宁）人员；</div>
         <div class="weui-cell weui-cell_switch">
             <div class="weui-cell__hd">
-                <label class="weui-label list-tit text-danger">必选项</label>
+                <label class="weui-label list-tit text-danger">家属填报</label>
             </div>
             <div class="weui-cell__bd">
-                <input class="weui-input case-txt must" type="text" placeholder="" id="btn-touching-focus">
+                <input class="weui-input case-txt" type="text" placeholder="" id="btn-touching-focus" aria-label="39.有无亲属2020年1月8日后从外地来宁（返宁）人员">
             </div>
             <div class="weui-cell__ft">
-                <i class="fa fa-star text-danger"></i>
                 <input class="weui-switch" type="checkbox" actname="touching">
             </div>
         </div>
+        <div class="weui-cell font-italic list-must text-primary">
+            <i class="fa fa-location-arrow text-success"></i>
+            有无亲属2020年1月8日后从外地来宁（返宁）人员,如需重置家属相关信息，请点击此按钮。
+        </div>
 
-        <div class="weui-cell cells-tit" name="touching-cell">40.接触对象姓名</div>
+        <div class="weui-cell cells-tit">40.接触对象姓名</div>
         <div class="weui-cell" name="touching-cell">
             <div class="weui-cell__bd">
-                <textarea class="weui-textarea" placeholder="张三、李四、王五...." rows="3" name="case-touching" id="touchingUser"></textarea>
+                <textarea class="weui-textarea" actname="touching" placeholder="张三、李四、王五...." rows="3" name="case-touching" id="touchingUser" aria-label="40.接触对象姓名"></textarea>
                 <div class="weui-textarea-counter"><span>0</span>/200</div>
             </div>
         </div>
 
-        <div class="weui-cell weui-cell_switch" name="touching-cell">
+        <div class="weui-cell weui-cell_switch">
             <div class="weui-cell__hd">
                 <label class="weui-label list-tit">41.与本人关系</label>
             </div>
             <div class="weui-cell__bd">
-                <input class="weui-input case-txt" type="text" placeholder="与本人关系（亲友/同事/其他）" name="case-touching"
-                       id="touchingUserRelat">
+                <input class="weui-input case-txt" actname="touching" type="text" placeholder="与本人关系（亲友/同事/其他）" name="case-touching"
+                       id="touchingUserRelat" aria-label="41.与本人关系">
             </div>
             <div class="weui-cell__ft">
                 <i class="fa fa-reply-all text-primary"></i>
             </div>
         </div>
 
-        <div class="weui-cell" name="touching-cell">
+        <div class="weui-cell">
             <div class="weui-cell__hd">
                 <label class="weui-label list-tit">42.来源地</label>
             </div>
             <div class="weui-cell__bd">
-                <input class="weui-input case-txt" type="text" placeholder="接触对象来源地（省/市/区)" name="case-touching"
-                       id="touchingUserFrom">
+                <input class="weui-input case-txt" actname="touching" type="text" placeholder="接触对象来源地（省/市/区)" name="case-touching"
+                       id="touchingUserFrom" aria-label="42.接触对象来源地（省/市/区)">
             </div>
             <div class="weui-cell__ft">
                 <i class="fa fa-reply-all text-primary"></i>
             </div>
         </div>
-        <div class="weui-cell" name="touching-cell">
+        <div class="weui-cell">
             <div class="weui-cell__hd">
                 <label class="weui-label list-tit"></label>
             </div>
@@ -62,20 +65,20 @@
             </div>
         </div>
 
-        <div class="weui-cell" name="touching-cell">
+        <div class="weui-cell">
             <div class="weui-cell__hd">
                 <label class="weui-label list-tit">43.接触日期</label>
             </div>
             <div class="weui-cell__bd">
-                <input class="weui-input case-txt" type="text" placeholder="2020年1月8日（含）以后" name="case-touching"
-                       id="touchingUserDate">
+                <input class="weui-input case-txt" actname="touching" type="text" placeholder="2020年1月8日（含）以后" name="case-touching"
+                       id="touchingUserDate" aria-label="43.接触日期">
             </div>
             <div class="weui-cell__ft">
                 <i class="fa fa-reply-all text-primary"></i>
             </div>
         </div>
 
-        <div class="weui-cell weui-cell_switch" name="touching-cell">
+        <div class="weui-cell weui-cell_switch">
             <div class="weui-cell__hd">
                 <label class="weui-label list-tit">44.有无就诊史</label>
             </div>
@@ -86,58 +89,58 @@
                 <input class="weui-switch" type="checkbox" actname="touchingUserHospitall" name="touchingUserHospitall">
             </div>
         </div>
-        <div class="weui-cell" name="touchingUserHospitall-cell">
+        <div class="weui-cell">
             <div class="weui-cell__bd">
                     <textarea class="weui-textarea" placeholder="有无就诊史，如有请填写（医疗机构名称）" rows="3" name="case-touching"
-                              id="touchingUserHospitall"></textarea>
+                              id="touchingUserHospitall" aria-label="44.有无就诊史"></textarea>
                 <div class="weui-textarea-counter"><span>0</span>/200</div>
             </div>
         </div>
 
-        <div class="weui-cell weui-cell_switch" name="touching-cell">
+        <div class="weui-cell weui-cell_switch">
             <div class="weui-cell__hd">
                 <label class="weui-label list-tit">45.有无向社区申报</label>
             </div>
             <div class="weui-cell__bd">
                 <input class="weui-input" type="text" placeholder="有无向社区申报" name="case-touching"
-                       id="touchingUserCallCommunity" value="未申报" valt="已申报" valf="未申报">
+                       id="touchingUserCallCommunity" value="未申报" valt="已申报" valf="未申报" aria-label="45.有无向社区申报">
             </div>
             <div class="weui-cell__ft">
                 <input class="weui-switch" type="checkbox" name="touchingUserCallCommunity">
             </div>
         </div>
 
-        <div class="weui-cell weui-cell_switch" name="touching-cell">
+        <div class="weui-cell weui-cell_switch">
             <div class="weui-cell__hd">
                 <label class="weui-label list-tit">46.接触后有无参加三人以上聚会</label>
             </div>
             <div class="weui-cell__bd">
                 <input class="weui-input" type="text" placeholder="接触后有无参加三人以上聚会" name="case-touching"
-                       id="touchingMeet" value="否" valt="是" valf="否">
+                       id="touchingMeet" value="否" valt="是" valf="否" aria-label="46.接触后有无参加三人以上聚会">
             </div>
             <div class="weui-cell__ft">
                 <input class="weui-switch" type="checkbox" name="touchingMeet">
             </div>
         </div>
 
-        <div class="weui-cell weui-cell_switch" name="touching-cell">
+        <div class="weui-cell weui-cell_switch">
             <div class="weui-cell__hd">
                 <label class="weui-label list-tit">47.接触后有无到人流密集场所</label>
             </div>
             <div class="weui-cell__bd">
                 <input class="weui-input" type="text" placeholder="接触后有无到人流密集场所" name="case-touching"
-                       id="touchingPubPlace" value="否" valt="是" valf="否">
+                       id="touchingPubPlace" value="否" valt="是" valf="否" aria-label="47.接触后有无到人流密集场所">
             </div>
             <div class="weui-cell__ft">
                 <input class="weui-switch" type="checkbox" name="touchingPubPlace">
             </div>
         </div>
 
-        <div class="weui-cell list-tit" name="touching-cell">48.其他</div>
-        <div class="weui-cell" name="touching-cell">
+        <div class="weui-cell list-tit">48.其他</div>
+        <div class="weui-cell">
             <div class="weui-cell__bd">
                     <textarea class="weui-textarea" placeholder="其他" rows="3" name="case-touching"
-                              id="touchingExplain"></textarea>
+                              id="touchingExplain" aria-label="48.其他"></textarea>
                 <div class="weui-textarea-counter"><span>0</span>/200</div>
             </div>
         </div>
