@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <head th:replace="link/head :: head"></head>
+    <head th:replace="link/head :: jQuery"></head>
+    <head th:replace="link/head :: weui"></head>
+    <head th:replace="link/head :: bootstrap"></head>
+    <head th:replace="link/head :: animate"></head>
+    <head th:replace="link/head :: fontawesome"></head>
+    <head th:replace="link/head :: idx"></head>
+    <head th:replace="link/head :: echarts"></head>
+    <title th:text="招商银行银川分行-图表分析"></title>
+</head>
+<body>
+<!-- 公告 -->
+<div class="text-center cmb-red font-weight-bold pt-3" style="font-size: 1.5rem">招商银行银川分行</div>
+<hr>
+<div id="chart-body"></div>
+<hr>
+<div class="weui-footer mt-4">
+    <p class="weui-footer__text">Copyright © 招商银行银川分行</p>
+</div>
+<script type="text/javascript" charset="UTF-8" th:src="@{/static/js/echart.js}"></script>
+</body>
+</html>

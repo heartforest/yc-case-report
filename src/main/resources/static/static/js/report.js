@@ -15,7 +15,8 @@ var viewItems = {
         "个人离宁返宁情况排查表-2",
         "亲属及社会关系接触情况排查表-2",
         "总行报表-总行最新-0207"],
-    "part2": ["数据总览表"]
+    "part2": ["数据总览表"],
+    "part3": ["楼宇进出统计表"]
 }
 $(function () {
     // 判断是否登录
@@ -84,6 +85,17 @@ function loginAction(passwordkey) {
 }
 
 var report_json = {
+    "楼宇进出统计表": {
+        url: getURLroot() + "/rest/report/autoview/VIEW_WORK",
+        columns: [{"data": "case_date", "title": "填报日期"},
+            {"data": "pgroupname", "title": "单位"},
+            {"data": "groupname", "title": "部门名称"},
+            {"data": "name", "title": "姓名"},
+            {"data": "sex", "title": "性别"},
+            {"data": "user_phone", "title": "联系电话"},
+            {"data": "body_temperature", "title": "体温"},
+            {"data": "work_time", "title": "填报时间"}]
+    },
     "数据总览表": {
         url: getURLroot() + "/rest/report/autoview/VIEW_CASE",
         columns: [{"data": "case_date", "title": "填报日期"},

@@ -206,10 +206,9 @@ public class InfoRestController {
     private Map getCaseInfo(TabUser tabUser) {
         try {
             // 获取昨天数据
-            LocalDate yesterday = LocalDate.now().minusDays(1);
             TabCaseUser tabCaseUser = tabCaseUserMapper.findByUseridAndCaseDate(tabUser.getUserid(), LocalDate.now());
             if(tabCaseUser == null) {
-                tabCaseUser = tabCaseUserMapper.findByUseridAndCaseDate(tabUser.getUserid(), yesterday);
+                tabCaseUser = tabCaseUserMapper.findByLastUseridFullInfo(tabUser.getUserid());
             }
             if(tabCaseUser == null) {
                 return Page.fail("没有信息-tabCaseUser");

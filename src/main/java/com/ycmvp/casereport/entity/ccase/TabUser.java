@@ -27,5 +27,8 @@ public class TabUser implements Serializable {
     private String userUrgentRelat;
     private String userJob;
     private String userAge;
+    private String userCity;
+    private String userCommunity;
+    private String userBuilding;
 
 }

@@ -18,4 +18,7 @@ public interface ViewCaseMapper {
             "WHERE CASE_DATE=#{caseDate} ")
     List<Map> findAutoViewname(@Param("viewname") String viewname, @Param("caseDate") LocalDate caseDate);
 
+    @Select("SELECT * " +
+            "FROM ${viewname} v ")
+    List<Map> findByViewname(@Param("viewname") String viewname);
 }

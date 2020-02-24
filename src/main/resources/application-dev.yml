@@ -46,6 +46,8 @@ case-report-params:
     # 加密口令
     passwordkey: "cmb$51432"
     passwordkey2: "cmb$9578"
+    passwordkey3: "cmb$5478"
+    passwordkey4: "cmb$7788"
     # 文件解析规则
     code-map:
         am:

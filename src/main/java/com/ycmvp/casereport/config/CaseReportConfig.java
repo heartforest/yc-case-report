@@ -28,6 +28,8 @@ public class CaseReportConfig {
     // 口令
     private String passwordkey;
     private String passwordkey2;
+    private String passwordkey3;
+    private String passwordkey4;
     // 码规则
     private Map codeMap;
     //

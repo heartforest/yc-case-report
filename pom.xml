@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.ycmvp</groupId>
     <artifactId>yc-case-report</artifactId>
-    <version>0.38.216</version>
+    <version>0.43.216</version>
     <name>yc-case-report</name>
     <description>病毒上报</description>
 

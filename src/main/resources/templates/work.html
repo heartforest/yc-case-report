@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <head th:replace="link/head :: head"></head>
+    <head th:replace="link/head :: jQuery"></head>
+    <head th:replace="link/head :: weui"></head>
+    <head th:replace="link/head :: bootstrap"></head>
+    <head th:replace="link/head :: animate"></head>
+    <head th:replace="link/head :: fontawesome"></head>
+    <head th:replace="link/head :: idx"></head>
+    <title th:text="招商银行银川分行-进出信息统计"></title>
+</head>
+<body>
+<!-- 公告 -->
+<div class="text-center cmb-red font-weight-bold pt-3" style="font-size: 1.5rem">招商银行银川分行</div>
+<hr>
+<div class="text-center cmb-red" style="font-size: 1.1rem">进出信息统计</div>
+<div id="work-body" th:workid="${workid}" th:workType="${workType}">
+    <div class="text-center">
+        <p id="maintit" class="font-weight-bold text-muted mt-4">正在加载....</p>
+        <span class="fa-3x cmb-red">
+             <i class="fas fa-spinner fa-spin"></i>
+        </span>
+    </div>
+</div>
+<hr>
+<div class="weui-footer mt-4">
+    <p class="weui-footer__text">Copyright © 招商银行银川分行</p>
+</div>
+<script type="text/javascript" charset="UTF-8" th:src="@{/static/js/work.js}"></script>
+</body>
+</html>

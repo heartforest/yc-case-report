@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+
+<html lang="zh-Hans">
+
+<div class="weui-cells d-none" id="work-div">
+
+    <div class="weui-cell">
+        <div class="weui-cell__hd">
+            <label class="weui-label list-tit">快速检索</label>
+        </div>
+        <div class="weui-cell__bd">
+            <input class="weui-input" type="text" id="fuzzy-key" placeholder="手机号/身份证号/一事通ID">
+        </div>
+        <div class="weui-cell__ft">
+            <i class="fa fa-star small text-danger"></i>
+        </div>
+    </div>
+
+    <div class="weui-cell weui-cell_switch">
+        <div class="weui-cell__hd">
+            <label class="weui-label list-tit">1.当前体温</label>
+        </div>
+        <div class="weui-cell__bd">
+            <input class="weui-input must" type="number" pattern="[0-9]*" placeholder="当前体温: 36.5" aria-label="1.当前体温" name="work" id="bodyTemperature">
+        </div>
+        <div class="weui-cell__ft">
+            <i class="fa fa-star small text-danger"></i>
+        </div>
+    </div>
+
+    <div class="weui-cell">
+        <div class="weui-cell__hd">
+            <label class="weui-label list-tit">2.单位</label>
+        </div>
+        <div class="weui-cell__bd">
+            <input class="weui-input must" type="text" name="user" id="pgroupname" placeholder="请选择隶属单位" name="user" aria-label="2.单位">
+        </div>
+    </div>
+
+    <div class="weui-cell">
+        <div class="weui-cell__hd">
+            <label class="weui-label list-tit">3.当前位置</label>
+        </div>
+        <div class="weui-cell__bd">
+            <input class="weui-input must" type="text" name="work" id="workBuilding" placeholder="请选择当前位置" name="work" aria-label="3.当前位置">
+        </div>
+    </div>
+
+    <div class="weui-cell">
+        <div class="weui-cell__hd">
+            <label class="weui-label list-tit">4.姓名</label>
+        </div>
+        <div class="weui-cell__bd">
+            <input class="weui-input must" type="text" placeholder="姓名" name="user" id="name" aria-label="4.姓名">
+        </div>
+    </div>
+
+    <div class="weui-cell">
+        <div class="weui-cell__hd">
+            <label class="weui-label list-tit">5.身份证号</label>
+        </div>
+        <div class="weui-cell__bd">
+            <input class="weui-input must" type="text" placeholder="身份证号" name="user" id="userCard" aria-label="5.身份证号">
+        </div>
+        <div class="weui-cell__ft">
+            <i class="fa fa-star small text-danger"></i>
+        </div>
+    </div>
+
+    <div class="weui-cell">
+        <div class="weui-cell__hd">
+            <label class="weui-label list-tit">6.联系电话</label>
+        </div>
+        <div class="weui-cell__bd">
+            <input class="weui-input must" type="number" pattern="[0-9]*" placeholder="请输入电话号码" name="user" id="userPhone" aria-label="6.联系电话">
+        </div>
+        <div class="weui-cell__ft">
+            <i class="fa fa-star small text-danger"></i>
+        </div>
+    </div>
+
+    <div class="weui-cell">
+        <div class="weui-cell__hd">
+            <label class="weui-label list-tit">7.常住社区/小区</label>
+        </div>
+        <div class="weui-cell__bd">
+            <input class="weui-input must" type="text" placeholder="社区/小区: 例如民生花园" aria-label="7.常住社区/小区" name="user" id="userCommunity">
+        </div>
+    </div>
+
+    <div class="weui-cell">
+        <div class="weui-cell__hd">
+            <label class="weui-label list-tit">8.常住楼栋单元</label>
+        </div>
+        <div class="weui-cell__bd">
+            <input class="weui-input must" type="text" placeholder="楼栋单元" aria-label="8.常住楼栋单元" name="user" id="userBuilding">
+        </div>
+    </div>
+
+    <div class="weui-cell">
+        <div class="weui-cell__hd">
+            <label class="weui-label list-tit">9.性别</label>
+        </div>
+        <div class="weui-cell__bd">
+            <input class="weui-input must" type="text" placeholder="性别" aria-label="9.性别" name="user" id="sex">
+        </div>
+    </div>
+
+    <div class="weui-cell">
+        <div class="weui-cell__hd">
+            <label class="weui-label list-tit">10.填报时间</label>
+        </div>
+        <div class="weui-cell__bd">
+            <input class="weui-input" type="text" placeholder="填报日期: 2020-01-01" aria-label="9.填报日期" id="workDate">
+        </div>
+    </div>
+
+    <div class="weui-cell">
+        <div class="weui-loadmore d-none" id="save-work-loading">
+            <i class="weui-loading"></i>
+            <span class="weui-loadmore__tips">正在提交</span>
+        </div>
+        <button class="weui-btn weui-btn_default bg-success text-white mx-4 px-4" type="button" id="save-work">提交</button>
+    </div>
+
+</div>

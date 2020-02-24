@@ -32,6 +32,10 @@ public class ReportRestController {
             return Page.ok("all");
         } else if(PubCodeUtil.sha256(caseReportConfig.getPasswordkey2().concat(timestamp)).equals(tokens)) {
                 return Page.ok("part2");
+        } else if(PubCodeUtil.sha256(caseReportConfig.getPasswordkey3().concat(timestamp)).equals(tokens)) {
+            return Page.ok("part3");
+        } else if(PubCodeUtil.sha256(caseReportConfig.getPasswordkey4().concat(timestamp)).equals(tokens)) {
+            return Page.ok("part4");
         } else {
             return Page.fail("口令不对");
         }
